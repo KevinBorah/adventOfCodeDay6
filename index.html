@@ -1,0 +1,51 @@
+<script type="text/javascript">
+	var arr = [14, 0, 15, 12, 11, 11, 3, 5, 1, 6, 8, 4, 9, 1, 8, 4];
+var complete = 0;
+var rounds = 0;
+var hasBeen = [[14, 0, 15, 12, 11, 11, 3, 5, 1, 6, 8, 4, 9, 1, 8, 4]];
+///*
+for (var a = 0; complete < 1; a++) {
+   var lN = Math.max(...arr);
+   //console.log(lN);
+   var b = arr.indexOf(lN) + 1;
+   //console.log(b);
+   if (a <= rounds) {
+      arr[b - 1] = 0;
+   }
+   for (b = b; lN > 0; b++) {
+      if (b < arr.length && lN > 0) {
+         //console.log(lN);
+         lN--;
+         arr[b]++;
+         //console.log(arr);
+         //console.log("If");
+      } else if (b > arr.length - 1 && lN > 0) {
+         //console.log(lN);
+         b = 0;
+         lN--;
+         arr[b]++;
+         //console.log(arr);
+         //console.log(b + "b");
+         //console.log("Else If");
+      }
+   }
+   rounds++;
+   var newArr = arr.slice();
+   hasBeen.push(newArr);
+   for (var q = 0; q < hasBeen.length - 1; q++) {
+         var a1 = hasBeen[q].join();
+         //console.log(a1 + "     a1");      
+      for (var r = q + 1; r < hasBeen.length; r++) {
+         var a2 = hasBeen[r].join();
+         //console.log(a2 + "     a2");
+         if (a1 === a2) {
+            complete++;
+            console.log("Ureka");
+            //console.log(hasBeen[q] + "   " + hasBeen[r]);
+         }
+      }
+   }
+}
+console.log(rounds);
+//*/
+</script>
